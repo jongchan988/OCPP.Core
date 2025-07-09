@@ -25,6 +25,6 @@ RUN apt update && apt install -y procps vim libxml2
 STOPSIGNAL SIGINT
 EXPOSE 8081 8082 8092 8091
 
-CMD ["./start_server.sh"]
+#CMD ["./start_server.sh"]
 
-#CMD ["dotnet-coverage", "collect", "--output", "/app/coverage.json", "--output-format", "json", "--", "dotnet", "OCPP.Core.Server.dll"]
+CMD ["dotnet-coverage", "collect", "--output", "/app/coverage.cobertura.xml", "--output-format", "cobertura", "--", "dotnet", "OCPP.Core.Server.dll"]
