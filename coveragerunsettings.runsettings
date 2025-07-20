@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RunSettings>
+  <DataCollectionRunSettings>
+    <DataCollectors>
+      <DataCollector friendlyName="Code Coverage">
+        <Configuration>
+          <Exclude>
+            <!-- 제외할 네임스페이스/모듈 -->
+            <Module>OCPP.Core.Server.ControllerOCPP16</Module>
+            <Module>OCPP.Core.Server.Messages_OCPP16</Module>
+            <Module>OCPP.Core.Server.ExtensionLoadContext</Module>
+            <Module>OCPP.Core.Database.Migrations</Module>
+            <!-- 커버리지 제외 속성 -->
+            <Attribute>System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverageAttribute</Attribute>
+          </Exclude>
+        </Configuration>
+      </DataCollector>
+    </DataCollectors>
+  </DataCollectionRunSettings>
+</RunSettings>

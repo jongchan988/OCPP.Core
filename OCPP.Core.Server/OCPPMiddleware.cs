@@ -41,9 +41,8 @@ namespace OCPP.Core.Server
     public partial class OCPPMiddleware
     {
         // Supported OCPP protocols (in order)
-        private const string Protocol_OCPP16 = "ocpp1.6";
         private const string Protocol_OCPP201 = "ocpp2.0.1";
-        private static readonly string[] SupportedProtocols = { Protocol_OCPP201, Protocol_OCPP16};
+        private static readonly string[] SupportedProtocols = { Protocol_OCPP201};
 
         // RegExp for splitting ocpp message parts
         // ^\[\s*(\d)\s*,\s*\"([^"]*)\"\s*,(?:\s*\"(\w*)\"\s*,)?\s*(.*)\s*\]$
@@ -247,11 +246,6 @@ namespace OCPP.Core.Server
                                             // OCPP V2.0
                                             await Receive20(chargePointStatus, context, dbContext);
                                         }
-                                        else
-                                        {
-                                            // OCPP V1.6
-                                            await Receive16(chargePointStatus, context, dbContext);
-                                        }
                                     }
                                 }
                                 catch (Exception exp)
@@ -371,11 +365,6 @@ namespace OCPP.Core.Server
                                         // OCPP V2.0
                                         await Reset20(status, context, dbContext);
                                     }
-                                    else
-                                    {
-                                        // OCPP V1.6
-                                        await Reset16(status, context, dbContext);
-                                    }
                                 }
                                 else
                                 {
@@ -410,11 +399,6 @@ namespace OCPP.Core.Server
                                     {
                                         // OCPP V2.0
                                         await UnlockConnector20(status, context, dbContext, urlConnectorId);
-                                    }
-                                    else
-                                    {
-                                        // OCPP V1.6
-                                        await UnlockConnector16(status, context, dbContext, urlConnectorId);
                                     }
                                 }
                                 else
@@ -460,11 +444,6 @@ namespace OCPP.Core.Server
                                             {
                                                 // OCPP V2.0
                                                 await SetChargingProfile20(status, context, dbContext, urlConnectorId, power, unit);
-                                            }
-                                            else
-                                            {
-                                                // OCPP V1.6
-                                                await SetChargingProfile16(status, context, dbContext, urlConnectorId, power, unit);
                                             }
                                         }
                                         else
@@ -512,11 +491,6 @@ namespace OCPP.Core.Server
                                     {
                                         // OCPP V2.0
                                         await ClearChargingProfile20(status, context, dbContext, urlConnectorId);
-                                    }
-                                    else
-                                    {
-                                        // OCPP V1.6
-                                        await ClearChargingProfile16(status, context, dbContext, urlConnectorId);
                                     }
                                 }
                                 else
