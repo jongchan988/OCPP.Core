@@ -19,5 +19,5 @@ RUN apt-get update && \
 
 COPY ./SQL-Server /usr/src/app/SQL-Server
 COPY ./entrypoint.sh /usr/src/app/entrypoint.sh
-
+RUN chmod +x /usr/src/app/entrypoint.sh
 ENTRYPOINT ["/usr/src/app/entrypoint.sh"]

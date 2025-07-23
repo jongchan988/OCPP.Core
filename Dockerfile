@@ -18,9 +18,6 @@ RUN dotnet tool install --global dotnet-coverage
 ENV PATH="$PATH:/root/.dotnet/tools"
 
 COPY --from=build /out ./
-COPY start_server.sh ./
-COPY stop_server.sh ./
-RUN chmod +x stop_server.sh start_server.sh
 RUN apt update && apt install -y procps vim libxml2
 STOPSIGNAL SIGINT
 EXPOSE 8081 8082 8092 8091
