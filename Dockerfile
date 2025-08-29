@@ -1,6 +1,7 @@
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 WORKDIR /app
-
+RUN mkdir -p /logs/OCPP && \
+    chmod -R 777 /logs
 # 테스트 커버리지 도구 설치
 RUN dotnet tool install --global dotnet-coverage
 ENV PATH="$PATH:/root/.dotnet/tools"

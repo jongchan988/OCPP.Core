@@ -559,6 +559,7 @@ namespace OCPP.Core.Server
             string dumpDir = _configuration.GetValue<string>("MessageDumpDir");
             if (!string.IsNullOrWhiteSpace(dumpDir))
             {
+                Directory.CreateDirectory(dumpDir);
                 string path = Path.Combine(dumpDir, string.Format("{0}_{1}.txt", DateTime.Now.ToString("yyyy-MM-dd_HH-mm-ss-ffff"), nameSuffix));
                 try
                 {
